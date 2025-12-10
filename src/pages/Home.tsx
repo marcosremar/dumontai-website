@@ -19,7 +19,7 @@ export function Home() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-gold opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-gold"></span>
                 </span>
-                v1.0 Santos-Dumont
+                v2
               </div>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
