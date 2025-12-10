@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-brand-bg: #030406;
+  --color-brand-surface: #0D1117;
+  --color-brand-border: #30363d;
+  --color-brand-green: #2EA043;
+  --color-brand-greenHighlight: #3FB950;
+  --color-brand-blue: #58A6FF;
+  --color-brand-gold: #D29922;
+  --color-brand-text: #C9D1D9;
+  --color-brand-muted: #8B949E;
+
+  --shadow-glow-green: 0 0 30px -5px rgba(46, 160, 67, 0.15);
+  --shadow-glow-blue: 0 0 30px -5px rgba(88, 166, 255, 0.15);
+  --shadow-inner-light: inset 0 1px 0 0 rgba(255, 255, 255, 0.05);
+
+  --animate-float: float 8s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* Tipografia refinada */
+body {
+  letter-spacing: -0.015em;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.03em;
+}
+
+/* Scrollbar Premium */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #010409; }
+::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border: 2px solid #010409;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover { background: #8B949E; }
+
+/* Gradientes de Texto Premium */
+.text-gold-gradient {
+  background: linear-gradient(to bottom right, #F0B748 0%, #C69026 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Grid Sutil */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, #30363d 1px, transparent 1px),
+                    linear-gradient(to bottom, #30363d 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+  opacity: 0.1;
+}
+
+/* Efeito de brilho no card */
+.glass-card {
+  background: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(48, 54, 61, 0.6);
+}

@@ -1,0 +1,7 @@
+export { Home } from './Home'
+export { Login } from './Login'
+export { Manifesto } from './Manifesto'
+export { Precos } from './Precos'
+export { Privacidade } from './Privacidade'
+export { Recursos } from './Recursos'
+export { Termos } from './Termos'
