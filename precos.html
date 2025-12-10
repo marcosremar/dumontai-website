@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth antialiased">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preços - Dumont AI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["JetBrains Mono", "monospace"],
+                    },
+                    colors: {
+                        brand: {
+                            bg: "#030406",
+                            surface: "#0D1117",
+                            border: "#30363d",
+                            green: "#2EA043",
+                            greenHighlight: "#3FB950",
+                            blue: "#58A6FF",
+                            gold: "#D29922",
+                            text: "#C9D1D9",
+                            muted: "#8B949E",
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { letter-spacing: -0.015em; }
+        h1, h2, h3 { letter-spacing: -0.03em; }
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #010409; }
+        ::-webkit-scrollbar-thumb { 
+            background: #30363d; 
+            border: 2px solid #010409;
+            border-radius: 99px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #8B949E; }
+        .text-gold-gradient {
+            background: linear-gradient(to bottom right, #F0B748 0%, #C69026 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, #30363d 1px, transparent 1px),
+                              linear-gradient(to bottom, #30363d 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+            -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 0%, #000 70%, transparent 100%);
+            opacity: 0.1;
+        }
+        .glass-card {
+            background: rgba(13, 17, 23, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(48, 54, 61, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-brand-bg text-brand-text font-sans overflow-x-hidden selection:bg-brand-green selection:text-white">
+
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-brand-green/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[120px]"></div>
+        <div class="bg-grid-pattern absolute inset-0 h-[800px]"></div>
+    </div>
+
+    <nav class="fixed top-0 w-full z-50 bg-brand-bg/80 backdrop-blur-xl border-b border-brand-border/50 supports-[backdrop-filter]:bg-brand-bg/60">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3 cursor-pointer group">
+                    <div class="relative w-8 h-8 flex items-center justify-center bg-gradient-to-br from-brand-border to-brand-bg rounded-lg border border-white/5 shadow-inner-light group-hover:border-brand-green/30 transition-colors">
+                        <svg class="w-5 h-5 text-brand-text group-hover:text-brand-green transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                    </div>
+                    <span class="text-sm font-semibold tracking-tight text-white">Dumont <span class="text-brand-muted font-normal">AI</span></span>
+                </div>
+                <div class="hidden md:flex items-center gap-8 text-[13px] font-medium text-brand-muted">
+                    <a href="/recursos.html" class="hover:text-white transition-colors">Recursos</a>
+                    <a href="/manifesto.html" class="hover:text-white transition-colors">Manifesto</a>
+                    <a href="/precos.html" class="hover:text-white transition-colors">Preços</a>
+                </div>
+                <div class="hidden md:flex items-center gap-4">
+                    <a href="/login.html"><button class="bg-[#238636] hover:bg-[#2ea043] text-white px-4 py-1.5 rounded-md text-[13px] font-semibold transition-all border border-[rgba(240,246,252,0.1)] shadow-sm">
+                        Testar Beta
+                    </button></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-32 pb-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-white mb-4">Planos e Preços</h1>
+                <p class="text-lg text-brand-muted">Escolha o plano ideal para suas necessidades de desenvolvimento.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Plano Gratuito -->
+                <div class="glass-card rounded-xl p-8">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Gratuito</h3>
+                        <div class="text-4xl font-bold text-brand-green mb-4">R$ 0</div>
+                        <p class="text-sm text-brand-muted">Perfeito para começar</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Até 100 sugestões por mês
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Suporte básico
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Contexto brasileiro
+                        </li>
+                    </ul>
+                    
+                    <a href="/login.html" class="block w-full bg-brand-surface text-center py-3 px-4 rounded-md font-semibold hover:bg-brand-border transition-all">
+                        Começar Gratuitamente
+                    </a>
+                </div>
+
+                <!-- Plano Profissional -->
+                <div class="glass-card rounded-xl p-8 border-2 border-brand-green relative">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-brand-green text-white px-3 py-1 rounded-full text-xs font-semibold">Mais Popular</span>
+                    </div>
+                    
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Profissional</h3>
+                        <div class="text-4xl font-bold text-brand-green mb-4">R$ 49<span class="text-lg">/mês</span></div>
+                        <p class="text-sm text-brand-muted">Para desenvolvedores individuais</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Sugestões ilimitadas
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Suporte prioritário
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Engenharia reversa avançada
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Integração com ferramentas
+                        </li>
+                    </ul>
+                    
+                    <a href="/login.html" class="block w-full bg-brand-green text-center py-3 px-4 rounded-md font-semibold hover:bg-brand-greenHighlight transition-all">
+                        Assinar Profissional
+                    </a>
+                </div>
+
+                <!-- Plano Empresarial -->
+                <div class="glass-card rounded-xl p-8">
+                    <div class="text-center mb-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Empresarial</h3>
+                        <div class="text-4xl font-bold text-brand-gold mb-4">Sob Consulta</div>
+                        <p class="text-sm text-brand-muted">Para equipes e empresas</p>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Tudo do plano Profissional
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Suporte dedicado 24/7
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            Treinamento personalizado
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <svg class="w-4 h-4 text-brand-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                            </svg>
+                            SLA garantido
+                        </li>
+                    </ul>
+                    
+                    <a href="/login.html" class="block w-full bg-brand-surface text-center py-3 px-4 rounded-md font-semibold hover:bg-brand-border transition-all">
+                        Falar com Vendas
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-brand-muted mb-4">Todos os planos incluem criptografia de ponta a ponta e conformidade com LGPD.</p>
+                <p class="text-sm text-brand-border">Preços em Reais (BRL). Sem taxas ocultas.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-brand-border/30 bg-[#030406] py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 rounded bg-brand-border/30 flex items-center justify-center border border-white/10">
+                    <svg class="w-3 h-3 text-brand-muted" viewBox="0 0 24 24" stroke="currentColor" fill="none"><path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                </div>
+                <span class="text-xs text-brand-muted">© 2025 Dumont AI Inc.</span>
+            </div>
+            <div class="flex gap-6 text-xs text-brand-muted font-medium">
+                <a href="/privacidade.html" class="hover:text-white transition-colors">Privacidade</a>
+                <a href="/termos.html" class="hover:text-white transition-colors">Termos</a>
+                <a href="https://twitter.com/dumontai" target="_blank" class="hover:text-white transition-colors">Twitter</a>
+                <a href="https://github.com/dumontai" target="_blank" class="hover:text-white transition-colors">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
