@@ -7,10 +7,12 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && rsync -avz --delete --rsync-path=\"sudo rsync\" dist/ dumontai:/var/www/html/"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
+    "phosphor-react": "^1.4.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router-dom": "^7.10.1",

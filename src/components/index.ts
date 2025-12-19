@@ -1,3 +1,8 @@
 export { Nav } from './Nav'
 export { Footer } from './Footer'
 export { BackgroundEffects } from './BackgroundEffects'
+export { ProjectCarousel } from './ProjectCarousel'
+export { CodeEditorPreview } from './CodeEditorPreview'
+export { PilotPreview } from './PilotPreview'
+export { AvatarPreview } from './AvatarPreview'
+export { ParisBackground } from './ParisBackground'
