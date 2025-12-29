@@ -1,18 +1,37 @@
 import { Link } from 'react-router-dom'
-import { PaperPlaneTilt, CaretRight } from 'phosphor-react'
-import { useState, useEffect } from 'react'
+import { PaperPlaneTilt, CaretRight, CaretDown, Code, Airplane, UserCircle, SpeakerHigh } from 'phosphor-react'
+import { useState, useEffect, useRef } from 'react'
 
 interface NavProps {
   variant?: 'full' | 'minimal'
 }
 
+const products = [
+  { name: 'Vocalize', href: 'https://vocalize.dumontai.com', icon: SpeakerHigh, description: 'Text-to-Speech AI' },
+  { name: 'Code', href: '/code', icon: Code, description: 'AI Code Assistant' },
+  { name: 'Pilot', href: '/pilot', icon: Airplane, description: 'AI Copilot' },
+  { name: 'Avatar', href: '/avatar', icon: UserCircle, description: 'AI Avatar Generator' },
+]
+
 export function Nav({ variant = 'full' }: NavProps) {
   const [scrolled, setScrolled] = useState(false)
+  const [productsOpen, setProductsOpen] = useState(false)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setProductsOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
 
   return (
@@ -41,6 +60,67 @@ export function Nav({ variant = 'full' }: NavProps) {
           {variant === 'full' ? (
             <>
               <div className="hidden md:flex items-center gap-1 bg-white/5 rounded-full px-2 py-1.5 border border-white/5 backdrop-blur-sm">
+                {/* Products Dropdown */}
+                <div className="relative" ref={dropdownRef}>
+                  <button
+                    onClick={() => setProductsOpen(!productsOpen)}
+                    className="flex items-center gap-1 px-5 py-2 rounded-full text-sm font-medium text-brand-muted hover:text-white hover:bg-white/5 transition-all duration-300"
+                  >
+                    Produtos
+                    <CaretDown
+                      weight="bold"
+                      className={`w-3 h-3 transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+
+                  {productsOpen && (
+                    <div className="absolute top-full left-0 mt-2 w-64 bg-[#0a0b0f]/95 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl overflow-hidden">
+                      {products.map((product) => {
+                        const Icon = product.icon
+                        const isExternal = product.href.startsWith('http')
+
+                        if (isExternal) {
+                          return (
+                            <a
+                              key={product.name}
+                              href={product.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors group"
+                              onClick={() => setProductsOpen(false)}
+                            >
+                              <div className="w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                                <Icon weight="duotone" className="w-5 h-5 text-brand-gold" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-medium text-white">{product.name}</div>
+                                <div className="text-xs text-brand-muted">{product.description}</div>
+                              </div>
+                            </a>
+                          )
+                        }
+
+                        return (
+                          <Link
+                            key={product.name}
+                            to={product.href}
+                            className="flex items-center gap-3 px-4 py-3 hover:bg-white/5 transition-colors group"
+                            onClick={() => setProductsOpen(false)}
+                          >
+                            <div className="w-10 h-10 rounded-lg bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold/20 transition-colors">
+                              <Icon weight="duotone" className="w-5 h-5 text-brand-gold" />
+                            </div>
+                            <div>
+                              <div className="text-sm font-medium text-white">{product.name}</div>
+                              <div className="text-xs text-brand-muted">{product.description}</div>
+                            </div>
+                          </Link>
+                        )
+                      })}
+                    </div>
+                  )}
+                </div>
+
                 {['Recursos', 'Manifesto', 'Preços'].map((item) => (
                   <Link
                     key={item}
