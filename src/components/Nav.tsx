@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { PaperPlaneTilt, CaretRight, CaretDown, Code, Airplane, UserCircle, SpeakerHigh } from 'phosphor-react'
+import { PaperPlaneTilt, CaretRight, CaretDown, Microphone, TreeStructure, Article, Books, SpeakerHigh, Lightbulb } from 'phosphor-react'
 import { useState, useEffect, useRef } from 'react'
 
 interface NavProps {
@@ -7,10 +7,12 @@ interface NavProps {
 }
 
 const products = [
-  { name: 'Vocalize', href: 'https://vocalize.dumontai.com', icon: SpeakerHigh, description: 'Text-to-Speech AI' },
-  { name: 'Code', href: '/code', icon: Code, description: 'AI Code Assistant' },
-  { name: 'Pilot', href: '/pilot', icon: Airplane, description: 'AI Copilot' },
-  { name: 'Avatar', href: '/avatar', icon: UserCircle, description: 'AI Avatar Generator' },
+  { name: 'AeroPod', href: 'https://aeropod.dumontai.com', icon: Microphone, description: 'Editor de podcasts com IA' },
+  { name: 'AirMap', href: 'https://airmap.dumontai.com', icon: TreeStructure, description: 'Mapas mentais com IA' },
+  { name: 'SkyWrite', href: 'https://skywrite.dumontai.com', icon: Article, description: 'Editor de teses academicas' },
+  { name: 'Glider', href: 'https://glider.dumontai.com', icon: Books, description: 'Assistente de pesquisa' },
+  { name: 'Soar', href: 'https://soar.dumontai.com', icon: SpeakerHigh, description: 'Text-to-Speech AI' },
+  { name: 'MicroFly', href: 'https://microfly.dumontai.com', icon: Lightbulb, description: 'Microlearning com IA' },
 ]
 
 export function Nav({ variant = 'full' }: NavProps) {
